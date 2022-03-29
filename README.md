@@ -1,5 +1,5 @@
 
-# MBalance
+# Mbalance
 
 An R package for Mahalanobis balancing.
 
