@@ -21,11 +21,11 @@ knitr::opts_chunk$set(
 The `MBalance` implements the Mahalanobis balancing method for estimating average treatment effect (ATE) and average treatment effect on the treated group or control group (ATT or ATC) on observational data. Our method has good performance (low bias, small balancing diagnostics) in "Bad Overlap" situations (e.g., $E\{Pr(T = 1 \mid X)\}$ closes to 0 or 1, $E\{ X \mid T = 1\}$ and $E\{ X \mid T = 0\}$ are significantly different, high-dimensional covariate).
 
 ```{r}
-# Install the "Mbalance" package from github.
+# Install the "MBalance" package from github.
 # if (!require(c("devtools","WeightIt","MASS","cobalt"))){
 #     install.packages(c("devtools","WeightIt","MASS","cobalt"))
 # }
-# devtools::install_github("yimindai0521/Mbalance")
+# devtools::install_github("yimindai0521/MBalance")
 library(MBalance)
 library(WeightIt)
 library(MASS)

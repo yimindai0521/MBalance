@@ -40,13 +40,13 @@ Default: c(1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6).}
 a hdMB object with the following attributes:
 \itemize{
 \item{GMIM:}{ Generalized Multivariate Imbalance Measure that defines in our paper.}
-\item{GASMD:}{ Generalized Absolute Standardized Mean Difference that defines in our paper.}
+\item{GASMD:}{ Generalized Absolute Standardized Mean Difference, See Details.}
 }
 }
 \description{
 High-Dimensional Mahalanobis balancing is a multivariate
 perspective of approximate covariate balancing method to estimate average
-treatment effect in causal inference. We first select variable then
+treatment effect in causal inference. We use function \code{hdMB} to select variable then
 Mahalanobis balancing method will be applied to estimate ATE.
 }
 \details{
