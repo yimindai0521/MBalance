@@ -1,6 +1,6 @@
 Package: MBalance
-Title: = Mahalanobis balancing
-Version: 0.0.0.9000
+Title: Mahalanobis balancing: a multivariate perspective on approximate covariate balancing
+Version: 0.0.1
 Authors@R: 
     person("Yimin", "Dai", , "yimindai1999@hotmail.com", role = c("aut", "cre"))
 Description: Mahalanobis balancing is a multivariate perspective of approximate covariate balancing method to estimate average treatment effect. 

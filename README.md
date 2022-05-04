@@ -1,5 +1,5 @@
 
-# Mbalance
+# MBalance
 
 An R package for Mahalanobis balancing.
 
@@ -8,10 +8,10 @@ An R package for Mahalanobis balancing.
 
 ## Overview
 
-This R package implements the Mahalanobis balancing method for estimating average treatment effect or average treatment effect in the controlled or treated group that is proposed in our paper: . It includes Mahalanobis balancing and high-dimensional Mahalanobis balancing method. 
+This R package implements the Mahalanobis balancing method for estimating average treatment effect (ATE) or average treatment effect in the controlled or treated group (ATC or ATT) that is proposed in our paper: [Mahalanobis balancing: a multivariate perspective on approximate covariate balancing](https://arxiv.org/abs/2204.13439). It includes Mahalanobis balancing and high-dimensional Mahalanobis balancing method. 
 
-- `MB()` produces an estimate of average treatment effect (ATE) or average treatment effect in the controlled or treated group (ATC or ATT).
-- `hdMB()` produces an estimate of average treatment effect (ATE) or average treatment effect in the controlled or treated group (ATC or ATT) in high-dimensional data.
+- `MB()` produces an estimate of ATE or ATC and ATT.
+- `hdMB()` produces an estimate of ATE or  ATC and ATT in high-dimensional data.
 
 
 ## Installation
@@ -22,7 +22,7 @@ You can install the development version of MBalance from [GitHub](https://github
 if (!require("devtools")){
     install.packages("devtools")
 }
-devtools::install_github("yimindai0521/Mbalance")
+devtools::install_github("yimindai0521/MBalance")
 ```
 
 ## Usage Examples

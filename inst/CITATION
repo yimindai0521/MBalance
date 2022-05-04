@@ -1,0 +1,10 @@
+citHeader("To cite MBalance in publications, please use:")
+
+citEntry(entry = "article",
+         author = "Yimin Dai and Ying Yan",
+         title = "Mahalanobis balancing: a multivariate perspective on approximate covariate balancing",
+         journal = "Arxiv",
+         year = "2022",
+         url = "https://arxiv.org/pdf/2204.13439",
+         textVersion = "Dai, Yimin, & Yan, Ying. (2022). Mahalanobis balancing: a multivariate perspective on approximate covariate balancing. arXiv preprint arXiv:."
+         )

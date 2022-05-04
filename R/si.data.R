@@ -32,7 +32,7 @@ si.data <- function(sample.size = 500, dimension = 10){
   ps2 <- exp(1 * apply(X[,1:10],1,sum))
   ps  <- cbind(ps1 / (ps1 + ps2),ps2 / (ps1 + ps2))
   uniform <- runif(sample.size)
-  index   <- cbind(ps[,1] < uniform)
+  index   <- cbind(ps[,1] > uniform)
   noise   <- rnorm(sample.size)
   Tr      <- apply(index,1,sum)
   Y       <- 1 * apply(X[,1:10],1,sum) + noise

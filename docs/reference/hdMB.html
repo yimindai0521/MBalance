@@ -20,7 +20,7 @@ Mahalanobis balancing method will be applied to estimate ATE."><!-- mathjax --><
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBalance</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.1</span>
       </span>
     </div>
 
@@ -35,7 +35,7 @@ Mahalanobis balancing method will be applied to estimate ATE."><!-- mathjax --><
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/package_intro.html">An Brief Introduction to `MBalance`</a>
+      <a href="../articles/package_intro.html">A Brief Introduction to `MBalance`</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
@@ -139,23 +139,23 @@ ASMD is unsuitable. Therefore, we use GASMD instead of ASMD to select the variab
 <span class="r-in"><span class="co">##choosing variable</span></span>
 <span class="r-in"><span class="va">hdMB1</span>       <span class="op">&lt;-</span> <span class="fu">hdMB</span><span class="op">(</span>x <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">X</span>, treat <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Tr</span>, group1 <span class="op">=</span> <span class="fl">1</span>, outcome <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Y</span>, method <span class="op">=</span> <span class="st">"MB"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">hdMB1</span><span class="op">$</span><span class="va">GMIM</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.009530e-09 4.698532e-10 3.585731e-10 2.898017e-10 2.963972e-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 2.269770e-10 2.413735e-10 2.523061e-10 3.074013e-10 3.062586e-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 3.201180e-10 3.637801e-10 2.527609e-10 2.591048e-10 2.972363e-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 2.529676e-10 2.404731e-10 8.236534e-10 4.254837e-10 9.506346e-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [21] 8.240780e-10 8.803717e-10 1.090486e-09 9.836493e-10 9.581269e-07</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [26] 1.576464e-05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.013443e-09 4.165684e-10 3.060022e-10 2.989469e-10 2.019793e-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 1.836889e-10 1.823804e-10 1.657426e-10 1.582662e-10 1.827693e-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 1.591133e-10 1.009574e-09 1.278928e-10 1.237531e-10 1.254830e-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 1.164060e-10 1.129730e-10 1.461194e-10 1.420197e-10 1.815353e-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] 2.493475e-10 2.207225e-10 5.923506e-10 4.494290e-10 3.734073e-10</span>
 <span class="r-in"><span class="va">threshold</span>   <span class="op">&lt;-</span> <span class="fl">24</span></span>
 <span class="r-in"><span class="va">index1</span>      <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rank.html" class="external-link">rank</a></span><span class="op">(</span><span class="va">hdMB1</span><span class="op">$</span><span class="va">GASMD</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="op">(</span><span class="va">dimension</span> <span class="op">-</span> <span class="va">threshold</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">##choosing variable</span></span>
 <span class="r-in"><span class="va">hdMB2</span>       <span class="op">&lt;-</span> <span class="fu">hdMB</span><span class="op">(</span>x <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">X</span>, treat <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Tr</span>, group1 <span class="op">=</span> <span class="fl">0</span>, outcome <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Y</span>, method <span class="op">=</span> <span class="st">"MB"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">hdMB2</span><span class="op">$</span><span class="va">GMIM</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.013443e-09 4.165684e-10 3.060022e-10 2.989469e-10 2.019793e-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 1.836889e-10 1.823804e-10 1.657426e-10 1.582662e-10 1.827693e-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 1.591133e-10 1.009574e-09 1.278928e-10 1.237531e-10 1.254830e-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 1.164060e-10 1.129730e-10 1.461194e-10 1.420197e-10 1.815353e-10</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [21] 2.493475e-10 2.207225e-10 5.923506e-10 4.494290e-10 3.734073e-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.009530e-09 4.698532e-10 3.585731e-10 2.898017e-10 2.963972e-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 2.269770e-10 2.413735e-10 2.523061e-10 3.074013e-10 3.062586e-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 3.201180e-10 3.637801e-10 2.527609e-10 2.591048e-10 2.972363e-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 2.529676e-10 2.404731e-10 8.236534e-10 4.254837e-10 9.506346e-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] 8.240780e-10 8.803717e-10 1.090486e-09 9.836493e-10 9.581269e-07</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26] 1.576464e-05</span>
 <span class="r-in"><span class="va">threshold</span>   <span class="op">&lt;-</span> <span class="fl">25</span></span>
 <span class="r-in"><span class="va">index2</span>      <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rank.html" class="external-link">rank</a></span><span class="op">(</span><span class="va">hdMB2</span><span class="op">$</span><span class="va">GASMD</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="op">(</span><span class="va">dimension</span> <span class="op">-</span> <span class="va">threshold</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span>
 <span class="r-in"></span>
@@ -163,29 +163,29 @@ ASMD is unsuitable. Therefore, we use GASMD instead of ASMD to select the variab
 <span class="r-in"><span class="va">result1</span>     <span class="op">&lt;-</span> <span class="fu"><a href="MB.html">MB</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">X</span><span class="op">[</span>,<span class="va">index1</span><span class="op">]</span>, treat <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Tr</span>, group1 <span class="op">=</span> <span class="fl">1</span>, outcome <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Y</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">result2</span>     <span class="op">&lt;-</span> <span class="fu"><a href="MB.html">MB</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">X</span><span class="op">[</span>,<span class="va">index2</span><span class="op">]</span>, treat <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Tr</span>, group1 <span class="op">=</span> <span class="fl">0</span>, outcome <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Y</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">result1</span><span class="op">$</span><span class="va">AT</span> <span class="op">-</span> <span class="va">result2</span><span class="op">$</span><span class="va">AT</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.466609</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.531392</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">##estimating ATC##</span></span>
 <span class="r-in"><span class="va">hdMB3</span>       <span class="op">&lt;-</span> <span class="fu">hdMB</span><span class="op">(</span>x <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">X</span>, treat <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Tr</span>, group1 <span class="op">=</span> <span class="fl">1</span>, group2 <span class="op">=</span> <span class="fl">0</span>, outcome <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Y</span>, method <span class="op">=</span> <span class="st">"MB"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">hdMB3</span><span class="op">$</span><span class="va">GMIM</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.212616e-09 3.168743e-09 4.198361e-09 1.023991e-09 1.176201e-09</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 4.389520e-09 4.859900e-09 3.890700e-04 6.189813e-03 6.180703e-03</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 7.681887e-03 7.083583e-03 1.239884e-02 1.377881e-02 1.402955e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 1.302385e-02 1.343482e-02 2.059218e-02 2.117580e-02 2.557701e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [21] 2.467458e-02 2.760436e-02 2.801698e-02 2.695449e-02 2.584830e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [26] 2.602368e-02 2.610590e-02 2.627600e-02 2.534782e-02 2.792964e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 2.809770e-02 3.014364e-02 3.033542e-02 3.028159e-02 2.969784e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [36] 3.086814e-02 3.078667e-02 2.996725e-02 2.919587e-02 2.908196e-02</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [41] 2.835851e-02 2.828126e-02 2.793579e-02 2.727435e-02 2.668795e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] 1.103350e-09 5.408293e-10 3.126990e-09 8.350571e-10 5.230085e-10</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [6] 7.204605e-10 9.948547e-10 2.164058e-09 2.835007e-09 7.441592e-04</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [11] 1.082554e-03 1.522453e-03 1.421600e-03 1.381286e-03 3.308602e-03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [16] 3.254491e-03 4.958012e-03 1.021128e-02 1.141307e-02 2.025296e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [21] 2.276865e-02 2.208487e-02 2.345102e-02 2.266175e-02 2.179582e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [26] 2.112981e-02 2.039318e-02 2.087220e-02 2.125897e-02 2.242038e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [31] 2.687277e-02 2.679158e-02 2.618509e-02 2.729385e-02 2.708712e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [36] 3.025703e-02 2.944948e-02 3.039040e-02 2.991640e-02 2.929125e-02</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [41] 2.882034e-02 2.820983e-02 2.846232e-02 2.781196e-02 2.733393e-02</span>
 <span class="r-in"><span class="va">threshold</span>   <span class="op">&lt;-</span> <span class="fl">7</span></span>
 <span class="r-in"><span class="va">index3</span>      <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rank.html" class="external-link">rank</a></span><span class="op">(</span><span class="va">hdMB3</span><span class="op">$</span><span class="va">GASMD</span><span class="op">)</span> <span class="op">&gt;=</span> <span class="op">(</span><span class="va">dimension</span> <span class="op">-</span> <span class="va">threshold</span> <span class="op">+</span> <span class="fl">1</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">result3</span>     <span class="op">&lt;-</span> <span class="fu"><a href="MB.html">MB</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">X</span><span class="op">[</span>,<span class="va">index3</span><span class="op">]</span>, treat <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Tr</span>, group1 <span class="op">=</span> <span class="fl">1</span>, group2 <span class="op">=</span> <span class="fl">0</span>, outcome <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Y</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">##an estimate of ATC</span></span>
 <span class="r-in"><span class="va">result3</span><span class="op">$</span><span class="va">AT</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">Y</span><span class="op">[</span><span class="va">data</span><span class="op">$</span><span class="va">Tr</span> <span class="op">==</span> <span class="fl">0</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>          [,1]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 2.005467</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -1.483675</span>
 </code></pre></div>
     </div>
   </div>

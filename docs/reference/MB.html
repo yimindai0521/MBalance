@@ -19,7 +19,7 @@ effect."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mat
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBalance</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.1</span>
       </span>
     </div>
 
@@ -34,7 +34,7 @@ effect."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mat
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu"><li>
-      <a href="../articles/package_intro.html">An Brief Introduction to `MBalance`</a>
+      <a href="../articles/package_intro.html">A Brief Introduction to `MBalance`</a>
     </li>
   </ul></li>
       </ul><ul class="nav navbar-nav navbar-right"></ul></div><!--/.nav-collapse -->
@@ -128,16 +128,16 @@ is c(1e-1, 1e-2, 1e-3, 1e-4, 1e-5, 1e-6).</p>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">##an estimate of ATE</span></span>
 <span class="r-in"><span class="va">result1</span><span class="op">$</span><span class="va">AT</span> <span class="op">-</span> <span class="va">result2</span><span class="op">$</span><span class="va">AT</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.1960204</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           [,1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] 0.1960204</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">##estimating ATC##</span></span>
 <span class="r-in"><span class="va">result3</span>     <span class="op">&lt;-</span> <span class="fu">MB</span><span class="op">(</span>x <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">X</span>, treat <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Tr</span>, group1 <span class="op">=</span> <span class="fl">1</span>, group2 <span class="op">=</span> <span class="fl">0</span>, outcome <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">Y</span>, method <span class="op">=</span> <span class="st">"MB"</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">##an estimate of ATC</span></span>
 <span class="r-in"><span class="va">result3</span><span class="op">$</span><span class="va">AT</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html" class="external-link">mean</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">Y</span><span class="op">[</span><span class="va">data</span><span class="op">$</span><span class="va">Tr</span> <span class="op">==</span> <span class="fl">0</span><span class="op">]</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            [,1]</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.4014883</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             [,1]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1,] -0.08257635</span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>

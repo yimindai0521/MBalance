@@ -1,11 +1,11 @@
 ---
-title: "An Brief Introduction to `MBalance`"
+title: "A Brief Introduction to `MBalance`"
 author: "Yimin Dai"
 date: "`r Sys.Date()`"
 bibliography: MBalance.bib
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{An Brief Introduction to `MBalance`}
+  %\VignetteIndexEntry{A Brief Introduction to `MBalance`}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-The `MBalance` implements the Mahalanobis balancing method for estimating average treatment effect (ATE) and average treatment effect on the treated group or control group (ATT or ATC) on observational data. Our method has good performance (low bias, small balancing diagnostics) in "Bad Overlap" situations (e.g., $E\{Pr(T = 1 \mid X)\}$ closes to 0 or 1, $E\{ X \mid T = 1\}$ and $E\{ X \mid T = 0\}$ are significantly different, high-dimensional covariate).
+The `MBalance` implements the Mahalanobis balancing method for estimating ATE and ATT or ATC on observational data. Our method has good performance (low bias, small balancing diagnostics) in "Bad Overlap" situations (e.g., $E\{Pr(T = 1 \mid X)\}$ closes to 0 or 1, $E\{ X \mid T = 1\}$ and $E\{ X \mid T = 0\}$ are significantly different, high-dimensional covariate).
 
 ```{r}
 # Install the "MBalance" package from github.
@@ -35,7 +35,7 @@ library(cobalt)
 
 # Implementation of other covariate balancing methods
 
-We provide function `covbal`,`sbwbal` to implement Mahalanobis balancing method and other covariate balancing methods, including inverse probability weighting (ps) in @robins1994estimation, entropy balancing (ebal) in @hainmueller2012entropy, covariate balancing propensity score (cbps) in  @imai2014covariate, energy balancing (energy) in @huling2020energy, minimal dispersion approximate balancing weights (sbw) in @wang2020minimal. 
+We provide function `covbal` (using R package `Weightit` @Gerifer2022Weightit),`sbwbal`(using R package `sbw` @zubizarreta2021package) to implement Mahalanobis balancing method and other covariate balancing methods, including inverse probability weighting (ps) in @rosenbaum1987model, entropy balancing (ebal) in @hainmueller2012entropy, covariate balancing propensity score (cbps) in  @imai2014covariate, energy balancing (energy) in @huling2020energy, minimal dispersion approximate balancing weights (sbw) in @wang2020minimal. 
 
 ```{r}
 covbal <- function(X, Tr, Y){
@@ -102,7 +102,7 @@ si.data.bad <- function(dimension = 10, sample.size = 200){
   z1     <- mvrnorm(sample.size, mu = rep(1,dimension), Sigma = covmatrix)
   z0     <- mvrnorm(sample.size, mu = rep(0,dimension), Sigma =         diag(dimension))
   X      <- treat * z1 + (1-treat) * z0
-  noise  <- runif(sample.size)
+  noise  <- rnorm(sample.size)
   Y      <- (1 + treat) * apply(X[,1:10],1,sum) + noise
   return(list(X = X, treat = treat, Y = Y))
 }
@@ -116,7 +116,7 @@ si.data.badover <- function(dimension = 10, sample.size = 1000){
   ps     <- 1 / (1 + 19 * exp( apply(X[,1:10],1,sum) - 10) )
   treat  <- rep(NA,sample.size)
   for(i in 1:sample.size){treat[i]  <- rbinom(1,1,ps[i])}
-  noise   <- runif(sample.size)
+  noise   <- rnorm(sample.size)
   Y       <- (1 + treat) * apply(X[,1:10],1,sum) + noise
   return(list(X = X, treat = treat, Y = Y))
 }
@@ -132,7 +132,7 @@ si.data.hd <- function(dimension = 100, sample.size = 200){
   ps     <- 1 / (1 + exp( apply(X[,1:6],1,sum) / 2) )
   treat  <- rep(NA,sample.size)
   for(i in 1:sample.size){treat[i]  <- rbinom(1,1,ps[i])}
-  noise  <- runif(sample.size)
+  noise  <- rnorm(sample.size)
   Y      <- (1 + treat) / 2 * apply(X[,1:6],1,sum) + noise
   return(list(X = X, treat = treat, Y = Y))
 }
@@ -203,9 +203,9 @@ love.plot(myformula, data = data.matrix, estimand = "ATE",
 
 We can find that ASMD of MB is significantly lower than other covariate balancing methods.
 
-We repeat 100 times to achieve bias for each method.
+We repeat 200 times.
 ```{r}
-mainf1 <- function(iteration = 100){
+mainf1 <- function(iteration = 1000){
   result1 <- matrix(0,iteration,5)
   result2 <- matrix(0,iteration,5)
   for(i in 1:iteration){
@@ -220,13 +220,13 @@ mainf1 <- function(iteration = 100){
 
 set.seed(0521)
 options(warn = -1)
-mainf1(100)
+mainf1(200)
 
 ```
 
 We can find that our method has lower bias than other methods because our purposed method has significantly lower imbalance and thus greatly outperforms other methods.
 
-#`hdMB`: estimating average treatment effect in high-dimensional data.
+#`hdMB`: estimating ate in high-dimensional data.
 
 ```{r}
 set.seed(0521)
